@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+}
+
+/* Floating Hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+
+.container { display: none; }
+.active { display: block; animation: fade 1s ease-in-out; }
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: none;
+  background: white;
+  color: #ff4d6d;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+img {
+  width: 80%;
+  max-width: 300px;
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<div id="p1" class="container active">
+  <h2>❤️ Click Here My Love ❤️</h2>
+  <button onclick="next(1)">Open</button>
+</div>
+
+<div id="p2" class="container">
+  <h2>Sorry for all my fuckups 🥺</h2>
+  <button onclick="next(2)">Next</button>
+</div>
+
+<div id="p3" class="container">
+  <h2>I love you and I would do anything to make you feel good ❤️</h2>
+  <button onclick="next(3)">Next</button>
+</div>
+
+<div id="p4" class="container">
+  <h2>You are the best best girl ever 💕</h2>
+  <button onclick="next(4)">Next</button>
+</div>
+
+<div id="p5" class="container">
+  <h2>i am not a coder but i still tried 🥺❤️</h2>
+  <button onclick="next(5)">Final</button>
+</div>
+
+<div id="p6" class="container">
+  <h2>iloveeyouuuuy🫶🫶😘😘❤️❤️🛐🛐🥵🥵🥺🥺</h2>
+  <img src="https://ibb.co/WvwYBkCD" alt="us">
+</div>
+
+<script>
+function next(num){
+  document.getElementById("p"+num).classList.remove("active");
+  document.getElementById("p"+(num+1)).classList.add("active");
+}
+
+/* Create floating hearts */
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}, 300);
+</script>
+
+</body>
+</html>
